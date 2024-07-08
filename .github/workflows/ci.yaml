@@ -25,6 +25,7 @@ jobs:
     permissions:
       contents: write
       pages: write
+      id-token: write
     container: ghcr.io/miracum/ig-build-tools:v2.0.60@sha256:814931d3ef33fb0ceccbd9dc6253e512eba0be83e7800559ce1cf5fd8cb52114
     steps:
       - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
@@ -37,7 +38,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
-          # Upload entire repository
           path: "PseudonymizationIG/output"
       - name: Deploy to GitHub Pages
         id: deployment
