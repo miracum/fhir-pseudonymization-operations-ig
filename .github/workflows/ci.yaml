@@ -1,0 +1,45 @@
+name: Build IG
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch: {}
+
+# Declare default permissions as read only.
+permissions: read-all
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: write
+      pages: write
+    container: ghcr.io/miracum/ig-build-tools:v2.0.60@sha256:814931d3ef33fb0ceccbd9dc6253e512eba0be83e7800559ce1cf5fd8cb52114
+    steps:
+      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      - name: Setup Pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
+      - name: build ig
+        working-directory: PseudonymizationIG/
+        run: |
+          java -jar /usr/local/bin/publisher.jar -ig ig.ini
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          # Upload entire repository
+          path: "PseudonymizationIG/output"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
+        if: ${{ github.event_name != 'pull_request' }}
