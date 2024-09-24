@@ -4,7 +4,7 @@
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: PseudonymizationIG
-canonical: https://medizininformatik-initiative.de/fhir/fhir-pseuodonymization
+canonical: https://medizininformatik-initiative.de/fhir/fhir-pseudonymization
 name: PseudonymizationIG
 # title: Example Title
 # description: Example Implementation Guide for getting started with SUSHI
