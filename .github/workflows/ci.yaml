@@ -28,7 +28,7 @@ jobs:
       id-token: write
     container: ghcr.io/miracum/ig-build-tools:v2.0.60@sha256:814931d3ef33fb0ceccbd9dc6253e512eba0be83e7800559ce1cf5fd8cb52114
     steps:
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Setup Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
       - name: build ig
