@@ -26,7 +26,7 @@ jobs:
       contents: write
       pages: write
       id-token: write
-    container: ghcr.io/miracum/ig-build-tools:v2.0.60@sha256:814931d3ef33fb0ceccbd9dc6253e512eba0be83e7800559ce1cf5fd8cb52114
+    container: ghcr.io/miracum/ig-build-tools:v2.1.6@sha256:26bc1eaf0a259e8c16d0eeeb8622c7aecaa45d41e39f158696f9aec90b142596
     steps:
       - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
       - name: Setup Pages
