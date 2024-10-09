@@ -9,9 +9,14 @@
   "packages": {
     ".": {
       "release-type": "simple",
-      "extra-files": ["PseudonymizationIG/sushi-config.yaml"],
       "bump-minor-pre-major": true,
-      "bump-patch-for-minor-pre-major": true
+      "bump-patch-for-minor-pre-major": true,
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": "PseudonymizationIG/sushi-config.yaml"
+        }
+      ]
     }
   }
 }
