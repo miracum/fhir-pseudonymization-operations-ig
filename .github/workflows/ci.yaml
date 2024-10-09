@@ -50,19 +50,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
-
-  lint:
-    uses: miracum/.github/.github/workflows/standard-lint.yaml@b2389048770aa5b9ed439810bf84911fbb07f645 # v1.12.3
-    if: ${{ !contains(github.event.pull_request.labels.*.name, 'release-please') }}
-    permissions:
-      contents: read
-      pull-requests: write
-      issues: write
-      security-events: write
-      actions: read
-    with:
-      enable-validate-gradle-wrapper: false
-      enable-codeql: false
-      enable-verify-base-image-signature: false
-    secrets:
-      github-token: ${{ secrets.GITHUB_TOKEN }}
